@@ -1,0 +1,10 @@
+.virtualenv/
+cache/
+results/
+job_store/
+runs
+work
+runs/
+work/
+*.simg
+*.img

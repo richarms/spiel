@@ -1,0 +1,68 @@
+# Telescope name
+telescope: meerkat
+antennas:
+  class: Directory 
+  path: ../../data/MeerKAT64_ANTENNAS
+
+# number of antennas, 7 for KAT-7, typically 64 for Meerkat
+nant: 64
+# Antenna SEFD
+sefd: 520
+
+# Synthesis time of observation in hours
+synthesis_min: 1 
+synthesis_max: 8
+
+# Integration time in seconds
+dtime: 10
+
+# Start frequency of observation
+freq0: 1285e6
+
+# Channel width
+dfreq_min: 800e6
+dfreq_max: 8506e6
+
+# Number of channels
+nchan: 1
+
+flux_scale_min: -5  #  flux_scale = 10**random.range(min, max)
+flux_scale_max: 0.5
+
+
+# simulation properties
+config:
+  class: File
+  path: ../../data/tdlconf.profiles
+
+# pointing/phase centre in degrees
+ra_min: -15.0
+ra_max: 15.0
+dec_min: -70.0
+dec_max: 0.0
+
+# sky model parameters
+nsrc: 350
+fov: 0.25
+pb_fwhm: 0.0725  # number of sources in the primary beam
+randomise_pos: true
+# Corrupt visibilities
+gain_errors: 1 # 1|0
+gainamp_min_error: 0.9 # no gain error is 1.0
+gainamp_max_error: 1.2 # no gain error is 1.0
+gainphase_min_error: 2 # in degrees
+gainphase_max_error: 10 # in degrees
+# Imaging params
+size_x: 2048
+size_y: 2048
+scale: 0.65asec
+niter: 100000
+mgain: 1.0
+column: DATA
+weight: uniform
+
+# This seed controls the telescope and sky model simulations
+random_seed: 9
+
+# Repeat simulation for multiple randomizer seeds
+random_seeds: [  0,   1]
